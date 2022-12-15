@@ -6,6 +6,12 @@ const input = Math.floor(require('fs').readFileSync('test.txt').toString());
  * 
  * @param {*} input : 입력받은 초! 
  */
+function calc(money) {
+    let result = 0;
+    result_300 += (Math.floor(input / 300));
+    console.log(`5분버튼 >> ${result_300}번`);
+    input = (input % 300); 
+}
 function solution(input) {
     let result_300 = 0;
     let result_60 = 0;
