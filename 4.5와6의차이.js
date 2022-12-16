@@ -15,7 +15,9 @@ const num2Arr = num2.split('').map((value) => +value);
 console.log(num1Arr, num2Arr);
 
 // arr로 일단은 받아보자
-let solution = (arr) => {
-    
-
+let solution = (arr) => { // [ '1430', '4862' ]
+    let [num1, num2] = arr.map((value) => value);
+    // 그리디 알고리즘 끝! 
 }
+
+console.log(solution(input));
