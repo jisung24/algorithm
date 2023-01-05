@@ -20,4 +20,12 @@ let solution = (arr) => { // [ '1430', '4862' ]
     // 그리디 알고리즘 끝! 
 }
 
+
+let arr = [2,3,4,5,6];
+let newArr = arr.map((value) => value + 1);
+console.log(arr, newArr); // map은 메모리상에 배열을 깊은복사 해와서 다시 return값으로 만들어줘! 
+// 배열 전체를 뒤바꾸고싶을 때!! 
+// 메모리를 그리면서 코딩을 해보자! ==> 그럼 훨씬 전문가답게 코딩할 수 있고, 기초가 훨씬 잘 쌓일거야! 
+
+
 console.log(solution(input));
