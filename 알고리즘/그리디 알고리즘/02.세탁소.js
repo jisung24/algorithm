@@ -1,26 +1,27 @@
-'use strict';
-// 3 => 테스트케이스 개수
-// 124 => 거스름돈 1
-// 25 => ...2
-// 194 => ...3 
+// 3 ==> testcase
+// 124 => 돈1 
+// 25 => 돈2
+// 194 => 돈3
+
+let moneyArr = [25, 10, 5, 1]; // 내가 거슬러 줄 수 있는 돈의 종류! => 큰 것 부터 최대한으로 거슬러주어서 결과적으로 최소한의 개수로 주어야 한다. 
+// 1. 큰 것 부터 선택! 
+let countArr2 = [0, 0, 0]; // 각 돈에 몇 번인지...
+let countArr = [0, 0, 0, 0];
 let input = require('fs').readFileSync('test.txt').toString().split('\n');
-let [ts, ...money] = input.map((value) => +value);
-// 와,, 구조분해할당으로 배열을 각각 구분시켜주는 코드...!! => 좋았어 이거
+let [tc, ...money] = input.map((value) => +value);
 
-let typeofmoney = [25, 10, 5, 1];
-
-for(let value of money) {
-    let moneyArr = [];
-    // console.log(`이번 돈 >> ${value} WON`);
-
-    for(let type of typeofmoney) {
-        let count = 0;
-        count += Math.floor(value / type);
-        // console.log(`${type} >> ${count}`); // 잘 나옴.
-        moneyArr.push(count);
-        value = value - (type * count);
-        // console.log(`value >> ${value}`);
+for(let i = 0; i < money.length; i++) {
+    console.log(money[i]);
+    for(let j = 0; j < countArr.length; j++) {
+        console.log(`${moneyArr[j]}원 시작한다!!`);
+        countArr[j] += Math.floor(money[i] / moneyArr[j]);
+        console.log(`${moneyArr[j]}는 ${countArr[j]}번!`);
+        money[i] -= (moneyArr[j] * countArr[j])
+        if(money[i] < moneyArr[j]) {
+            console.log('끝!');
+            break;
+        }
+        console.log(`남은 돈 >> ${money[i]}`);
     }
-    console.log(moneyArr.join(' '));
+    console.log(`총 >> ${countArr.reduce((acc, cur) => acc + cur)}번!`);
 }
-// console.log(moneyArr);
